@@ -1,0 +1,26 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+const default = {
+    family: 'sans-serif',
+    sizes: [24, 34, 50, 72]
+  },
+  headingSample = `Heading`,
+  bodySample = `Sapien tortor nam vehicula iaculis mattis`;
+
+<Meta title="Brand/Typography" />
+
+# Typography
+
+<br />
+
+## Sans Serif
+
+Description of the typeface
+
+### Regular
+
+<Typeset
+  fontWeight={400}
+  fontFamily={default.family}
+  fontSizes={default.sizes}
+  sampleText={bodySample}
+/>

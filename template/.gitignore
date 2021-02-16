@@ -1,0 +1,14 @@
+# Deps
+node_modules
+
+# Runtime
+.env*
+.DS_Store
+*.log
+/.next
+
+# Production
+/dist
+/storybook
+/public/sw.js
+/public/workbox*
