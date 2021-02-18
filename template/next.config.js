@@ -24,6 +24,7 @@ module.exports = withPlugins(
       ignoreBuildErrors: true
     },
     images: {
+      deviceSizes: [480, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
       domains: [
 <% if (features.prisimc) { -%>
         'images.prismic.io',
