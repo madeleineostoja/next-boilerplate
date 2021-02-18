@@ -18,12 +18,15 @@ module.exports = withPlugins(
   ],
   {
     target: 'serverless',
-    distDir: 'dist',
     poweredByHeader: false,
     typescript: {
       ignoreBuildErrors: true
     },
     images: {
+<% if (features.prisimc) { -%>
+      loader: 'imgix',
+      path: '',
+<% } -%>
       deviceSizes: [480, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
       domains: [
 <% if (features.prisimc) { -%>

@@ -2,13 +2,17 @@
 node_modules
 
 # Runtime
-.env*
-.DS_Store
-*.log
 /.next
+.env.*
+*.log*
 
-# Production
-/dist
-/storybook
+# Build
+/build
+/out
 /public/sw.js
+/public/sitemap.xml
 /public/workbox*
+
+# Misc
+.DS_Store
+.vercel
