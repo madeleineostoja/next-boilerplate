@@ -10,8 +10,11 @@ node_modules
 /build
 /out
 /public/sw.js
-/public/sitemap.xml
 /public/workbox*
+<% if (features.sitemap) { -%>
+/public/sitemap.xml
+/public/robots.txt
+<% } -%>
 
 # Misc
 .DS_Store
