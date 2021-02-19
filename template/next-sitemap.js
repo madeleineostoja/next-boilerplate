@@ -1,4 +1,3 @@
 module.exports = {
-  siteUrl: '',
-  sourceDir: 'dist'
+  siteUrl: '<%= url %>',
 };

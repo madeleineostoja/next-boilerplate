@@ -48,6 +48,16 @@ module.exports = {
         message: 'Features:',
         choices: [
           {
+            name: 'Preact',
+            value: 'preact',
+            checked: false
+          },
+          {
+            name: 'Emotion',
+            value: 'emotion',
+            checked: false
+          },
+          {
             name: 'Prismic',
             value: 'prismic',
             checked: false

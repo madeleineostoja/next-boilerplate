@@ -4,7 +4,9 @@ to: src/pages/<%%= name %%>.tsx
 <%% if (staticProps) { -%%>
 import { InferGetStaticPropsType, GetStaticProps, GetStaticPropsContext } from 'next';
 <%% } -%%>
+<% if (features.emotion) { -%>
 import { css } from '@emotion/react';
+<% } -%>
 import { Meta } from '../components/Meta';
 <%% if (prismic) { -%%>
 import { get } from '../lib/prismic';
@@ -18,13 +20,11 @@ export default function <%%= h.changeCase.pascal(name) %%>Page({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
+      <style jsx>{``}</style>
       <Meta <%% if (staticProps) { %%>title={data.meta_title} description={data.meta_description} <%% } %%> />
     </>
   );
 }
-
-/** Page styles */
-const styles = {};
 
 <%% if (staticProps) { -%%>
 /** Page data */

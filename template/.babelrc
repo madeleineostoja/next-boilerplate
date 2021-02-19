@@ -5,10 +5,11 @@
       {
         "preset-react": {
           "runtime": "automatic",
-          "importSource": "@emotion/react"
+          "importSource": <%= features.emotion && "@emotion/react" %><%= features.preact && '"preact"' %>
         }
       }
     ]
-  ],
+  ]<% if (features.emotion) { %>,
   "plugins": ["@emotion/babel-plugin"]
+<% } -%>
 }
