@@ -25,4 +25,7 @@ export default css`
     text-decoration: none;
     color: inherit;
   }
+  section {
+    content-visibility: auto;
+  }
 `;
