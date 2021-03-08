@@ -1,4 +1,3 @@
-import { css } from '@emotion/react';
 import { HTMLProps } from 'react';
 import { inputStyles } from '..';
 
@@ -9,11 +8,14 @@ export type InputProps = HTMLProps<HTMLInputElement>;
  */
 export function Input({ ...props }: InputProps) {
   return (
-    <input
-      css={css`
-        ${inputStyles}
-      `}
-      {...props}
-    />
+    <>
+      <style jsx>{`
+        input {
+          ${inputStyles}
+        }
+      `}</style>
+
+      <input {...props} />
+    </>
   );
 }

@@ -4,9 +4,6 @@ to: src/pages/<%%= name %%>.tsx
 <%% if (staticProps) { -%%>
 import { InferGetStaticPropsType, GetStaticProps, GetStaticPropsContext } from 'next';
 <%% } -%%>
-<% if (features.emotion) { -%>
-import { css } from '@emotion/react';
-<% } -%>
 import { Meta } from '../components/Meta';
 <%% if (prismic) { -%%>
 import { get } from '../lib/prismic';

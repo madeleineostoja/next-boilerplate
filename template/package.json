@@ -17,10 +17,6 @@
     "start": "next start"
   },
   "dependencies": {
-<% if (features.emotion) { -%>
-    "@emotion/react": "^11.1.0",
-    "@emotion/styled": "^11.0.0",
-<% } -%>
 <% if (features.firestore) { -%>
     "@nandorojo/swr-firestore": "^0.16.0",
 <% } -%>
@@ -66,10 +62,6 @@
     "@babel/preset-env": "^7.12.0",
     "@babel/preset-react": "^7.12.0",
     "@babel/preset-typescript": "^7.12.0",
-<% if (features.emotion) { -%>
-    "@emotion/babel-plugin": "^11.1.0",
-    "@emotion/babel-preset-css-prop": "^11.0.0",
-<% } -%>
     "@next/bundle-analyzer": "^10.0.0",
     "@storybook/addon-docs": "^6.1.0",
     "@storybook/addons": "^6.1.0",
@@ -86,6 +78,8 @@
     "babel-loader": "^8.2.0",
     "concurrently": "^5.3.0",
     "hygen": "^6.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.2.0",
     "typescript": "^4.1.0",
     "url-loader": "^4.1.0"
   }

@@ -1,21 +1,21 @@
-import { css } from '@emotion/react';
 import { HTMLProps, ReactNode } from 'react';
 
 export function Page({
-  children,
-  ...props
+  children
 }: { children: ReactNode } & HTMLProps<HTMLDivElement>) {
   return (
-    <div
-      css={css`
+    <style jsx>{`
+      main {
         display: grid;
         grid-template-columns: var(--grid-page);
         & > * {
           grid-column: 2 / 3;
         }
-      `}
-    >
+      }
+    `}</style>
+
+    <main>
       {children}
-    </div>
+    </main>
   );
 }

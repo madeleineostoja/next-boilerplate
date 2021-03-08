@@ -1,4 +1,3 @@
-import { css, Global } from '@emotion/react';
 <% if (features.firestore) { -%>
   import { Fuego, FuegoProvider } from '@nandorojo/swr-firestore';
   import 'firebase/auth';
@@ -15,19 +14,11 @@ import { useEffect } from 'react';
 import { FIREBASE_CONFIG } from '../lib/consts';
 <% } -%>
 import { GlobalData } from '../lib/GlobalData';
-import { styles } from '../styles';
+import styles from '../styles';
 
 <% if (features.firestore) { -%>
 const firebase = new Fuego(FIREBASE_CONFIG);
 <% } -%>
-const containerStyles = css`
-    display: grid;
-    grid-template-columns: var(--grid-page);
-    align-items: start;
-    & > * {
-      grid-column: 2 / 3;
-    }
-  `;
 
 function App({ Component, pageProps }: AppProps & any) {
   useEffect(() => {
@@ -36,6 +27,21 @@ function App({ Component, pageProps }: AppProps & any) {
 
   return (
     <>
+      <style jsx global>{styles}</style>
+      <style jsx>{`
+        main {
+          display: grid;
+          grid-template-columns: var(--grid-page);
+          align-items: start;
+          position: relative;
+          min-height: 100vh;
+          overflow: hidden;
+          & > * {
+            grid-column: 2 / 3;
+          }
+        }
+      `}</style>
+
       {/* Meta */}
       <Head>
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -55,9 +61,6 @@ function App({ Component, pageProps }: AppProps & any) {
         }}
       />
 
-      {/* Global styles */}
-      <Global styles={styles} />
-
 <% if (features.firestore) { -%>
       {/* Firestore */}
       <FuegoProvider fuego={firebase}>
@@ -65,14 +68,7 @@ function App({ Component, pageProps }: AppProps & any) {
         {/* Global data */}
         <GlobalData.Provider value={{}}>
           {/* Page */}
-          <main
-            css={css`
-              ${containerStyles}
-              position: relative;
-              min-height: 100vh;
-              overflow: hidden;
-            `}
-          >
+          <main>
             <Component {...pageProps} />
           </main>
         </GlobalData.Provider>

@@ -53,11 +53,6 @@ module.exports = {
             checked: false
           },
           {
-            name: 'Emotion',
-            value: 'emotion',
-            checked: false
-          },
-          {
             name: 'Prismic',
             value: 'prismic',
             checked: false
