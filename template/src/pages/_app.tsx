@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 import { FIREBASE_CONFIG } from '../lib/consts';
 <% } -%>
 import { GlobalData } from '../lib/GlobalData';
-import styles from '../styles';
+import styles, { reset } from '../styles';
 
 <% if (features.firestore) { -%>
 const firebase = new Fuego(FIREBASE_CONFIG);
@@ -27,16 +27,20 @@ function App({ Component, pageProps }: AppProps & any) {
 
   return (
     <>
-      <style jsx global>{styles}</style>
+      <style jsx global>
+        {reset}
+      </style>
+      <style jsx global>
+        {styles}
+      </style>
       <style jsx>{`
-        main {
+      main {
           display: grid;
-          grid-template-columns: var(--grid-page);
-          align-items: start;
           position: relative;
           min-height: 100vh;
-          overflow: hidden;
-          & > * {
+          grid-template-columns: var(--grid-page);
+          align-items: start;
+          & > :global(*) {
             grid-column: 2 / 3;
           }
         }

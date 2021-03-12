@@ -1,6 +1,7 @@
 const withPlugins = require('next-compose-plugins');
 const withPWA = require('next-pwa');
 const withFonts = require('next-fonts');
+const withImages = require('next-optimized-images');
 <% if (features.preact) { -%>
 const withPreact = require('next-plugin-preact');
 <% } -%>
@@ -19,6 +20,7 @@ module.exports = withPlugins(
         pwa: { dest: 'public', disable: process.env.NODE_ENV === 'development' }
       }
     ],
+    withImages,
     withFonts,
     [withBundleAnalyzer]
   ],

@@ -1,6 +1,5 @@
 import { camel, snake } from 'case';
 import clean from 'clean-deep';
-import { URL } from 'url';
 
 /**
  * Snakify props for adding to query params

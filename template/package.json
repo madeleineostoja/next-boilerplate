@@ -30,6 +30,7 @@
 <% } -%>
     "next-compose-plugins": "^2.2.0",
     "next-fonts": "^1.5.0",
+    "next-optimized-images": "^2.6.0",
     "next-pwa": "^5.0.0",
     "next-seo": "^4.19.0",
 <% if (features.sitemap) { -%>
@@ -81,7 +82,10 @@
     "hygen": "^6.0.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-optipng": "^8.0.0",
     "typescript": "^4.1.0",
-    "url-loader": "^4.1.0"
+    "url-loader": "^4.1.0",
+    "webp-loader": "^0.6.0"
   }
 }
