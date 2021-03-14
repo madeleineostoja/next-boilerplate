@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import { HTMLProps } from 'react';
 import { reset } from 'satchel-css';
 
@@ -14,13 +15,13 @@ export function Button({ theme = 'primary', children, ...props }: ButtonProps) {
   const Element = props.href ? 'button' : 'a';
 
   return (
-    <>
-      <style jsx>{`
-        button.button {
-          ${reset('button')}
-        }
-
-        .button {
+    <Element
+      css={[
+        !props.href &&
+          css`
+            ${reset('button')}
+          `,
+        css`
           display: inline-flex;
           align-items: center;
           text-align: center;
@@ -28,15 +29,11 @@ export function Button({ theme = 'primary', children, ...props }: ButtonProps) {
           border-radius: var(--radius-3);
           cursor: pointer;
           white-space: nowrap;
-        }
-      `}</style>
-
-      <Element
-        className="button"
-        {...props}
-      >
-        {children}
-      </Element>
-    </>
+        `
+      ]}
+      {...props}
+    >
+      {children}
+    </Element>
   );
 }

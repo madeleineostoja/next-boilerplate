@@ -1,23 +1,18 @@
-import css from 'styled-jsx/css'
+import { css } from '@emotion/react';
 import { normalize } from 'satchel-css';
 import variables from './variables';
 
-/**
- * Normalization
- * Cannot be used inside external styled-jsx block
- */
- export const reset = normalize({
-  base: 'remedy',
-  fontSmoothing: true,
-  resetMargins: true,
-  resetHeadings: true
-});
 
 /**
- * Global document styles
+ * Base document styles
  */
-export default css.global`
-  ${variables}
+export default [variables, css`
+  ${normalize({
+    base: 'remedy',
+    fontSmoothing: true,
+    resetMargins: true,
+    resetHeadings: true
+  })}
 
   html {
     color: var(--color-text);
@@ -37,4 +32,4 @@ export default css.global`
   section {
     content-visibility: auto;
   }
-`;
+`];

@@ -1,3 +1,4 @@
+import { css, Global } from '@emotion/react';
 <% if (features.firestore) { -%>
   import { Fuego, FuegoProvider } from '@nandorojo/swr-firestore';
   import 'firebase/auth';
@@ -14,25 +15,36 @@ import { useEffect } from 'react';
 import { FIREBASE_CONFIG } from '../lib/consts';
 <% } -%>
 import { GlobalData } from '../lib/GlobalData';
-import styles, { reset } from '../styles';
+import styles from '../styles';
 
 <% if (features.firestore) { -%>
 const firebase = new Fuego(FIREBASE_CONFIG);
 <% } -%>
 
+const styles = {
+  main: css`
+    display: grid;
+    position: relative;
+    min-height: 100vh;
+    grid-template-columns: var(--grid-page);
+    align-items: start;
+    & > :global(*) {
+      grid-column: 2 / 3;
+    }
+  `
+}
+
 function App({ Component, pageProps }: AppProps & any) {
   useEffect(() => {
     shimmie();
   }, []);
+  const
 
   return (
     <>
-      <style jsx global>
-        {reset}
-      </style>
-      <style jsx global>
-        {styles}
-      </style>
+      {/* Global styles */}
+      <Global styles={styles} />
+
       <style jsx>{`
       main {
           display: grid;
@@ -72,7 +84,7 @@ function App({ Component, pageProps }: AppProps & any) {
         {/* Global data */}
         <GlobalData.Provider value={{}}>
           {/* Page */}
-          <main>
+          <main styles={main}>
             <Component {...pageProps} />
           </main>
         </GlobalData.Provider>

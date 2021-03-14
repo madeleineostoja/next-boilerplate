@@ -1,6 +1,7 @@
 ---
 to: src/components/<%%= name %%>/index.tsx
 ---
+import { css } from '@emotion/react';
 <%% if (locals.props) { -%%>
 
 export type <%%= name %%>Props = {
@@ -23,7 +24,6 @@ export function <%%= name %%>(<%% if (locals.props) { %%>{
 <%% } else { -%%>props: any<%% } %%>) {
   return (
     <>
-      <style jsx>{``}</style>
       <div {...props}>
 
       </div>

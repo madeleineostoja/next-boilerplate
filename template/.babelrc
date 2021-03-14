@@ -5,10 +5,7 @@
       {
         "preset-react": {
           "runtime": "automatic",
-          "importSource": "preact/compat"
-        },
-        "styled-jsx": {
-          "plugins": ["styled-jsx-plugin-postcss"]
+          "importSource": "@emotion/react"
         }
       }
     ]

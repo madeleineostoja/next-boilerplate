@@ -1,3 +1,4 @@
+import { Global } from '@emotion/react';
 import { DocsContainer, Stories } from '@storybook/addon-docs/blocks';
 import { addDecorator, addParameters } from '@storybook/react';
 import 'pollen-css';
@@ -15,7 +16,7 @@ Stories.defaultProps = {
 // Global styles
 addDecorator((story: any) => (
   <>
-    <style jsx global>{styles}</style>
+    <Global styles={styles} />
     {story()}
   </>
 ));
@@ -24,7 +25,7 @@ addParameters({
   docs: {
     container: ({ children, context }: any) => (
       <DocsContainer context={context}>
-        <style jsx global>{styles}</style>
+        <Global styles={styles} />
         {children}
       </DocsContainer>
     )

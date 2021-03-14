@@ -1,3 +1,4 @@
+import { css } from '@emotion/core';
 import React from 'react';
 import ReactTextArea from 'react-textarea-autosize';
 import { inputStyles } from '..';
@@ -12,21 +13,15 @@ export type TextAreaProps = {
  */
 export function TextArea({ rows = 6, ...props }: TextAreaProps) {
   return (
-    <>
-      <style jsx>{`
-        .textarea {
-          ${inputStyles}
-          width: 100%;
-          max-height: 30rem;
-          resize: none !important;
-        }
-      `}</style>
-
-      <ReactTextArea
-        className="textarea"
-        minRows={rows}
-        {...props}
-      />
-    </>
+    <ReactTextArea
+      css={css`
+        ${inputStyles}
+        width: 100%;
+        max-height: 30rem;
+        resize: none !important;
+      `}
+      minRows={rows}
+      {...props}
+    />
   );
 }

@@ -1,9 +1,11 @@
+import { css } from '@emotion/react';
+
 /**
  * Design system
  * Using Pollen as a foundation
  * https://pollen.style
  */
-export default /*css*/`
+export default css`
   :root {
     /* Typography */
 

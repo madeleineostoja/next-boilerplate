@@ -20,7 +20,12 @@ module.exports = withPlugins(
         pwa: { dest: 'public', disable: process.env.NODE_ENV === 'development' }
       }
     ],
-    withImages,
+    [
+      withImages,
+      {
+        handleImages: ['jpeg', 'png', 'webp', 'gif']
+      }
+    ],
     withFonts,
     [withBundleAnalyzer]
   ],
@@ -31,15 +36,12 @@ module.exports = withPlugins(
       ignoreBuildErrors: true
     },
     images: {
-<% if (features.prisimc) { -%>
-      loader: 'imgix',
-      path: '',
-<% } -%>
       deviceSizes: [480, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
       domains: [
 <% if (features.prisimc) { -%>
         'images.prismic.io',
         'prismic-io.s3.amazonaws.com',
+        '<%= prismic %>.cdn.prismic.io',
 <% } -%>
         /* development */ 'source.unsplash.com'
       ]

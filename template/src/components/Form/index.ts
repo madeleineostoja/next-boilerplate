@@ -1,6 +1,7 @@
+import { css } from '@emotion/core';
 import { reset } from 'satchel-css';
 
-export const inputStyles = /*css*/`
+export const inputStyles = css`
   ${reset('input')}
   padding: 12px;
   transition: all 200ms ease;
