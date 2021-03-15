@@ -2,11 +2,11 @@ const FEATURES = {
   prismic: [
     'src/pages/api/**/*',
     '@types/react-html-renderer.d.ts',
-    'src/lib/prismic.ts'
+    'src/lib/prismic.ts',
   ],
   layouts: ['_templates/new/layout/**/*', '@types/next-layout.d.ts'],
   formComponents: 'src/components/Form/**/*',
-  sitemap: 'next-sitemap.js'
+  sitemap: 'next-sitemap.js',
 };
 
 module.exports = {
@@ -15,33 +15,33 @@ module.exports = {
       {
         type: 'input',
         name: 'name',
-        message: 'Name:'
+        message: 'Name:',
       },
       {
         type: 'input',
         name: 'packageName',
-        message: 'Package name:'
+        message: 'Package name:',
       },
       {
         type: 'input',
         name: 'url',
-        message: 'URL:'
+        message: 'URL:',
       },
       {
         type: 'input',
         name: 'description',
-        message: 'Description:'
+        message: 'Description:',
       },
       {
         type: 'input',
         name: 'author',
         message: 'Author:',
-        default: 'Peppercorn Studio <madi@peppercorn.studio>'
+        default: 'Peppercorn Studio <madi@peppercorn.studio>',
       },
       {
         type: 'input',
         name: 'brandColour',
-        message: 'Brand color:'
+        message: 'Brand color:',
       },
       {
         type: 'checkbox',
@@ -51,47 +51,49 @@ module.exports = {
           {
             name: 'Preact',
             value: 'preact',
-            checked: true
+            checked: true,
           },
           {
             name: 'Prismic',
             value: 'prismic',
-            checked: true
+            checked: true,
           },
           {
             name: 'Layouts',
             value: 'layouts',
-            checked: false
+            checked: false,
           },
           {
             name: 'Firestore',
             value: 'firestore',
-            checked: false
+            checked: false,
           },
           {
             name: 'Form Components',
             value: 'formComponents',
-            checked: false
+            checked: false,
           },
           {
             name: 'Sitemap',
             value: 'sitemap',
-            checked: false
-          }
-        ]
+            checked: false,
+          },
+        ],
+        filter: (features) =>
+          features.reduce((ac, a) => ({ ...ac, [a]: true }), {}),
       },
       {
         type: 'input',
         name: 'prismic',
         message: 'Prismic repository name:',
-        when: ({ features }) => features.prismic
+        when: ({ features }) => features.prismic,
       },
       {
         type: 'input',
         name: 'contentPath',
         message: 'Content folder path:',
-        when: ({ source }) => source === 'mdx'
-      }
+        when: ({ source }) => source === 'mdx',
+      },
     ];
   },
   actions: ({ answers }) => {
@@ -100,16 +102,15 @@ module.exports = {
         type: 'add',
         files: [
           '**',
-          ...Object.keys(FEATURES)
-            .filter((feature) => !answers.features.includes(feature))
+          ...Object.keys(answers.features)
+            .filter((feature) => !answers.features[feature])
             .map((feature) =>
               Array.isArray(feature)
                 ? FEATURES[feature].map((file) => `!${file}`)
                 : `!${FEATURES[feature]}`
-            )
-            .flat()
-        ]
-      }
+            ),
+        ].flat(),
+      },
     ];
   },
 
@@ -117,5 +118,5 @@ module.exports = {
     this.gitInit();
     await this.npmInstall();
     this.showProjectTips();
-  }
+  },
 };
