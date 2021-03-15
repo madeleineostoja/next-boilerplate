@@ -38,7 +38,7 @@ module.exports = withPlugins(
     images: {
       deviceSizes: [480, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
       domains: [
-<% if (features.prisimc) { -%>
+<% if (features.prismic) { -%>
         'images.prismic.io',
         'prismic-io.s3.amazonaws.com',
         '<%= prismic %>.cdn.prismic.io',
@@ -46,7 +46,7 @@ module.exports = withPlugins(
         /* development */ 'source.unsplash.com'
       ]
     },
-    webpack: (config, { webpack }) => {
+    webpack: (config) => {
       // Add SVGR support
       config.module.rules.push({
         test: /\.svg$/,

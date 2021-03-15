@@ -2,7 +2,6 @@ import { css } from '@emotion/react';
 import { normalize } from 'satchel-css';
 import variables from './variables';
 
-
 /**
  * Base document styles
  */

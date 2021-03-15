@@ -3,25 +3,23 @@ import { css, Global } from '@emotion/react';
 import { LayoutTree } from '@moxy/next-layout';
 <% } -%>
 <% if (features.firestore) { -%>
-import { Fuego, FuegoProvider } from '@nandorojo/swr-firestore';
+import { FuegoProvider } from '@nandorojo/swr-firestore';
+import { Firebase } from '../lib/firebase';
+import { FIREBASE_CONFIG } from '../lib/consts';
 import 'firebase/auth';
 import 'firebase/firestore';
 <% } -%>
-import 'array-flat-polyfill';
 import { DefaultSeo } from 'next-seo';
 import NextApp, { AppContext, AppProps } from 'next/app';
 import Head from 'next/head';
 import 'pollen-css';
 import { shimmie } from 'pollen-css/utils';
 import { useEffect } from 'react';
-<% if (features.firestore) { -%>
-import { FIREBASE_CONFIG } from '../lib/consts';
-<% } -%>
 import { GlobalData } from '../lib/GlobalData';
 import globalStyles from '../styles';
 
 <% if (features.firestore) { -%>
-const firebase = new Fuego(FIREBASE_CONFIG);
+const firebase = new Firebase(FIREBASE_CONFIG);
 <% } -%>
 const styles = {
   main: css`
@@ -40,7 +38,6 @@ function App({ Component, pageProps }: AppProps & any) {
   useEffect(() => {
     shimmie();
   }, []);
-  const
 
   return (
     <>
@@ -65,24 +62,22 @@ function App({ Component, pageProps }: AppProps & any) {
         }}
       />
 
-      <% if (features.firestore) { -%>
-      {/* Firestore */}
+<% if (features.firestore) { -%>
       <FuegoProvider fuego={firebase}>
-      <% } -%>
-        {/* Global data */}
+<% } -%>
         <GlobalData.Provider value={{}}>
           {/* Page */}
-          <main styles={main}>
-            <% if (features.layouts) { -%>
+          <main styles={styles.main}>
+<% if (features.layouts) { -%>
             <LayoutTree Component={Component} pageProps={pageProps} />
-            <% } else { -%>
+<% } else { -%>
             <Component {...pageProps} />
-            <% } -%>
+<% } -%>
           </main>
         </GlobalData.Provider>
-      <% if (features.firestore) { -%>
+<% if (features.firestore) { -%>
       </FuegoProvider>
-      <% } -%>
+<% } -%>
     </>
   );
 }

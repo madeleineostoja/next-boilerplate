@@ -7,6 +7,7 @@ const FEATURES = {
   layouts: ['_templates/new/layout/**/*', '@types/next-layout.d.ts'],
   formComponents: 'src/components/Form/**/*',
   sitemap: 'next-sitemap.js',
+  firestore: 'src/lib/firebase.ts',
 };
 
 module.exports = {

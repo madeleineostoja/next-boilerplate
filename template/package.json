@@ -26,7 +26,6 @@
     "@nandorojo/swr-firestore": "^0.16.0",
 <% } -%>
     "@svgr/webpack": "^5.5.0",
-    "array-flat-polyfill": "^1.0.0",
     "case": "^1.6.0",
     "clean-deep": "^3.4.0",
     "next": "^10.0.0",
