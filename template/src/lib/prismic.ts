@@ -7,12 +7,16 @@ import { ResolvedApiOptions } from 'prismic-javascript/types/ResolvedApi';
 import { PRISMIC_API } from './consts';
 
 /** Convert Prismic RichText to HTML string */
-export function html(richtext: object[]) {
-  return richtext ? RichText.asHtml(richtext, resolveLink) : '';
+export function richtext(richtext: object, inline?: boolean) {
+  const result = richtext ? RichText.asHtml(richtext, resolveLink) : '';
+
+  return inline
+    ? result.replace(/^<[^>]+>|<\/[^>]+>$|<[^/>][^>]*><\/[^>]+>/g, '')
+    : result;
 }
 
 /** Convert Prismic RichText to plaintext string */
-export function plaintext(richtext: object[]) {
+export function plaintext(richtext: object) {
   return richtext ? RichText.asText(richtext) : '';
 }
 
