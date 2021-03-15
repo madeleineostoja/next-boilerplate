@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "build": "next build",
-<% if (features.sitemap) { -%>
-      "postbuild": "next-sitemap",
-<% } -%>
+    <% if (features.sitemap) { -%>
+    "postbuild": "next-sitemap",
+    <% } -%>
     "build:storybook": "build-storybook -o ./storybook -s ./public --quiet --docs",
     "clean": "rm -rf ./dist ./storybook",
     "develop": "next dev",
@@ -53,8 +53,8 @@
     "react-html-renderer": "^0.3.0",
 <% } -%>
     "query-string": "^6.13.0",
-    "react": <%= features.prismic ? '"npm:@preact/compat"' : '"^17.0.0"' %>
-    "react-dom": <%= features.prismic ? '"npm:@preact/compat"' : '"^17.0.0"' %>
+    "react": "<%- features.prismic ? 'npm:@preact/compat' : '^17.0.0' %>"
+    "react-dom": "<%- features.prismic ? 'npm:@preact/compat' : '^17.0.0' %>"
     "react-responsive": "^8.2.0",
 <% if (features.formComponents) { -%>
     "react-select": "^4.0.0",
