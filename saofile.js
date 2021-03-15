@@ -103,7 +103,7 @@ module.exports = {
           ...Object.keys(FEATURES)
             .filter((feature) => !answers.features.includes(feature))
             .map((feature) =>
-              feature.isArray()
+              Array.isArray(feature)
                 ? FEATURES[feature].map((file) => `!${file}`)
                 : `!${FEATURES[feature]}`
             )
