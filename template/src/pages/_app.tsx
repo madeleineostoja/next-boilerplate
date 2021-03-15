@@ -28,7 +28,7 @@ const styles = {
     min-height: 100vh;
     grid-template-columns: var(--grid-page);
     align-items: start;
-    & > :global(*) {
+    & > * {
       grid-column: 2 / 3;
     }
   `
