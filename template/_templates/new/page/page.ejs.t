@@ -42,8 +42,9 @@ export default withLayout()(<%%= h.changeCase.pascal(name) %%>Page)
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   return {
     props: {
-      data: <% if (features.prismic) { %><%% if (prismic) { %%>await get('<%%= name %%>', context)<%% } %%><% } %><% if (features.prismic) { %>,
-      preview: context.preview || null<% } %>
+      data: <% if (features.prismic) { %><%%- prismic ? `await get('${name}', context)` : '{}' %%><%% if (prismic) { %%>,
+      preview: context.preview || null
+    <%% } %%><% } %>
     }
   };
 };
