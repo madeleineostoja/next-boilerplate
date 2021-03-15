@@ -70,7 +70,7 @@
     "@storybook/addons": "^6.1.0",
     "@storybook/react": "^6.1.0",
     "@types/node": "^14.14.0",
-<% if (features.prisimc) { -%>
+<% if (features.prismic) { -%>
     "@types/prismic-dom": "^2.1.0",
 <% } -%>
     "@types/react": "^17.0.1",
