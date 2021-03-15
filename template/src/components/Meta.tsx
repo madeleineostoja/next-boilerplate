@@ -15,7 +15,7 @@ export type MetaProps = {
 /**
  * Sets a page's <head> meta data
  */
-export function Meta({ title, description, cover = '/cover.png' }: MetaProps) {
+export function Meta({ title, description, cover }: MetaProps) {
   const { pathname, locale, defaultLocale, query } = useRouter();
   let resolvedPathName = pathname;
 
@@ -27,7 +27,7 @@ export function Meta({ title, description, cover = '/cover.png' }: MetaProps) {
       ))
   );
 
-  const resolvedCover = cover && resolveUrl(cover, SITE_URL || ''),
+  const resolvedCover = cover && (resolveUrl(cover, SITE_URL || '') as string),
     resolvedLocation =
       locale === defaultLocale
         ? `${SITE_URL}${resolvedPathName}`
