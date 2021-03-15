@@ -102,7 +102,7 @@ module.exports = {
         type: 'add',
         files: [
           '**',
-          ...Object.keys(answers.features)
+          ...Object.keys(FEATURES)
             .filter((feature) => !answers.features[feature])
             .map((feature) =>
               Array.isArray(feature)
