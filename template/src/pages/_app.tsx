@@ -18,12 +18,11 @@ import { useEffect } from 'react';
 import { FIREBASE_CONFIG } from '../lib/consts';
 <% } -%>
 import { GlobalData } from '../lib/GlobalData';
-import styles from '../styles';
+import globalStyles from '../styles';
 
 <% if (features.firestore) { -%>
 const firebase = new Fuego(FIREBASE_CONFIG);
 <% } -%>
-
 const styles = {
   main: css`
     display: grid;
@@ -45,7 +44,7 @@ function App({ Component, pageProps }: AppProps & any) {
 
   return (
     <>
-      <Global styles={styles} />
+      <Global styles={globalStyles} />
 
       {/* Meta */}
       <Head>
