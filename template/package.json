@@ -44,7 +44,7 @@
     "preact-render-to-string": "^5.1.12",
     "react-ssr-prepass": "npm:preact-ssr-prepass",
 <% } -%>
-<% if (features.prisimc) { -%>
+<% if (features.prismic) { -%>
     "prismic-dom": "^2.2.0",
     "prismic-javascript": "^3.0.0",
     "react-html-renderer": "^0.3.0",
