@@ -67,7 +67,7 @@ function App({ Component, pageProps }: AppProps & any) {
 <% } -%>
         <GlobalData.Provider value={{}}>
           {/* Page */}
-          <main styles={styles.main}>
+          <main css={styles.main}>
 <% if (features.layouts) { -%>
             <LayoutTree Component={Component} pageProps={pageProps} />
 <% } else { -%>
