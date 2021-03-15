@@ -17,6 +17,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
+<% if (features.layouts) { -%>
+    "@moxy/next-layout": "^2.2.0",
+<% } -%>
 <% if (features.firestore) { -%>
     "@nandorojo/swr-firestore": "^0.16.0",
 <% } -%>

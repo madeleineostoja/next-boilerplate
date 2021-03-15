@@ -1,9 +1,12 @@
 import { css, Global } from '@emotion/react';
+<% if (features.layouts) { -%>
+import { LayoutTree } from '@moxy/next-layout';
+<% } -%>
 <% if (features.firestore) { -%>
-  import { Fuego, FuegoProvider } from '@nandorojo/swr-firestore';
-  import 'firebase/auth';
-  import 'firebase/firestore';
-  <% } -%>
+import { Fuego, FuegoProvider } from '@nandorojo/swr-firestore';
+import 'firebase/auth';
+import 'firebase/firestore';
+<% } -%>
 import 'array-flat-polyfill';
 import { DefaultSeo } from 'next-seo';
 import NextApp, { AppContext, AppProps } from 'next/app';
@@ -42,21 +45,7 @@ function App({ Component, pageProps }: AppProps & any) {
 
   return (
     <>
-      {/* Global styles */}
       <Global styles={styles} />
-
-      <style jsx>{`
-      main {
-          display: grid;
-          position: relative;
-          min-height: 100vh;
-          grid-template-columns: var(--grid-page);
-          align-items: start;
-          & > :global(*) {
-            grid-column: 2 / 3;
-          }
-        }
-      `}</style>
 
       {/* Meta */}
       <Head>
@@ -77,20 +66,24 @@ function App({ Component, pageProps }: AppProps & any) {
         }}
       />
 
-<% if (features.firestore) { -%>
+      <% if (features.firestore) { -%>
       {/* Firestore */}
       <FuegoProvider fuego={firebase}>
-<% } -%>
+      <% } -%>
         {/* Global data */}
         <GlobalData.Provider value={{}}>
           {/* Page */}
           <main styles={main}>
+            <% if (features.layouts) { -%>
+            <LayoutTree Component={Component} pageProps={pageProps} />
+            <% } else { -%>
             <Component {...pageProps} />
+            <% } -%>
           </main>
         </GlobalData.Provider>
-<% if (features.firestore) { -%>
+      <% if (features.firestore) { -%>
       </FuegoProvider>
-<% } -%>
+      <% } -%>
     </>
   );
 }

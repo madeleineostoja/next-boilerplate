@@ -4,6 +4,7 @@ const FEATURES = {
     '@types/react-html-renderer.d.ts',
     'src/lib/prismic.ts'
   ],
+  layouts: ['_templates/new/layout/**/*', '@types/next-layout.d.ts'],
   formComponents: 'src/components/Form/**/*',
   sitemap: 'next-sitemap.js'
 };
@@ -50,11 +51,16 @@ module.exports = {
           {
             name: 'Preact',
             value: 'preact',
-            checked: false
+            checked: true
           },
           {
             name: 'Prismic',
             value: 'prismic',
+            checked: true
+          },
+          {
+            name: 'Layouts',
+            value: 'layouts',
             checked: false
           },
           {
