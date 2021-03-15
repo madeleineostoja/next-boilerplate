@@ -20,7 +20,7 @@ import { get } from '../lib/prismic';
 /**
  * <%%= h.changeCase.sentence(name) %%> page
  */
-<%%= !layout && 'export default ' %%>function <%%= h.changeCase.pascal(name) %%>Page({
+<% if (features.layouts) { %><%%= !layout ? 'export default ' : '' %%><% } %>function <%%= h.changeCase.pascal(name) %%>Page({
   <%% if (staticProps) { -%%>data<%% } %%>
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const styles = {};
