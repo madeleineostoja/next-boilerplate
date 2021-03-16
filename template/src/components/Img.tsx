@@ -15,6 +15,10 @@ export type ImgProps = Partial<ImageProps> & {
   layout?: 'fixed' | 'responsive' | 'intrinsic' | undefined;
 };
 
+function prismicLoader({ src, width, quality }: any) {
+  return `${src.split(/[?#]/)[0]}?auto=format&w=${width}&q=${quality || 80}`;
+}
+
 /**
  * Responsive, lazy-loaded image component
  */
@@ -28,8 +32,6 @@ export function Img({
   width,
   ...props
 }: ImgProps) {
-  const [loaded, setLoaded] = useState(false);
-
   return (
     <div
       css={css`
@@ -37,26 +39,17 @@ export function Img({
       `}
       className={className}
     >
-      {!loaded && prismic ? (
-        <img
-          src={`${prismic?.url}?w=0.5&blur=200&px=16&auto=format&colorquant=150`}
-        />
-      ) : (
-        <Image
-          src={src || prismic?.url || ''}
-          alt={alt || prismic?.alt || ''}
-          width={width || prismic?.dimensions?.width || ''}
-          height={height || prismic?.dimensions?.height || ''}
-          layout={layout}
-          loading="lazy"
-          objectFit="cover"
-          onLoad={() => setLoaded(true)}
-          css={css`
-            visibility: ${loaded ? 'visible' : 'hidden'} !important;
-          `}
-          {...props}
-        />
-      )}
+      <Image
+        loader={prismic ? prismicLoader : undefined}
+        src={src || prismic?.url || ''}
+        alt={alt || prismic?.alt || ''}
+        width={width || prismic?.dimensions?.width || ''}
+        height={height || prismic?.dimensions?.height || ''}
+        layout={layout}
+        loading="lazy"
+        objectFit="cover"
+        {...props}
+      />
     </div>
   );
 }
