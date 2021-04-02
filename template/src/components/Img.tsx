@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import Image, { ImageProps } from 'next/image';
-import { useState } from 'react';
 
 export type PrismicImg = {
   url: string;

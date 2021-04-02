@@ -23,10 +23,8 @@ export function <%%= name %%>(<%% if (locals.props) { %%>{
 }: <%%= name %%>Props
 <%% } else { -%%>props: any<%% } %%>) {
   return (
-    <>
-      <div {...props}>
+    <div {...props}>
 
-      </div>
-    </>
+    </div>
   );
 }
