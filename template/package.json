@@ -8,13 +8,19 @@
     "postbuild": "next-sitemap",
 <% } -%>
     "build:storybook": "build-storybook -o ./storybook -s ./public --quiet --docs",
-    "clean": "rm -rf ./dist ./storybook",
+<% if (features.prismic) { -%>
+    "predevelop": "yarn typegen",
+<% } -%>
     "develop": "next dev",
     "develop:storybook": "start-storybook -p 3002 -s ./public --ci --quiet",
     "develop:all": "concurrently npm:develop npm:develop:storybook",
+<% if (features.prismic) { -%>
+    "typegen": "graphql-codegen",
+<% } -%>
     "generate": "hygen new",
     "analyze": "ANALYZE=true yarn build",
-    "start": "next start"
+    "start": "next start",
+    "clean": "rm -rf ./dist ./storybook"
   },
   "dependencies": {
     "@emotion/react": "^11.1.4",
@@ -71,6 +77,10 @@
     "@storybook/react": "^6.1.0",
     "@types/node": "^14.14.0",
 <% if (features.prismic) { -%>
+    "graphql": "^15.5.0",
+    "@graphql-codegen/cli": "^1.21.0",
+    "@graphql-codegen/typescript": "^1.22.0",
+    "@graphql-codegen/typescript-operations": "^1.17.0",
     "@types/prismic-dom": "^2.1.0",
 <% } -%>
     "@types/react": "^17.0.1",

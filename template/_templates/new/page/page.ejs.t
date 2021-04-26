@@ -14,6 +14,7 @@ import { Meta } from '../components/Meta';
 <% if (features.prismic) { -%>
 <%% if (prismic) { -%%>
 import { get } from '../lib/prismic';
+import { <%= h.changeCase.pascal(name) %> } from '../../@types/_generated/prismic';
 <%% } -%%>
 <% } -%>
 
@@ -22,7 +23,7 @@ import { get } from '../lib/prismic';
  */
 <% if (features.layouts) { %><%%= !layout ? 'export default ' : '' %%><% else { %>export default <% } %>function <%%= h.changeCase.pascal(name) %%>Page({
   <%% if (staticProps) { -%%>data<%% } %%>
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+}: { data: <%= h.changeCase.pascal(name) %> }) {
   const styles = {};
 
   return (

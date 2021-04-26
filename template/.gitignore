@@ -3,6 +3,9 @@ node_modules
 
 # Runtime
 /.next
+<% if (features.prismic) { -%>
+/@types/_generated
+<% } -%>
 .env.*
 *.log*
 

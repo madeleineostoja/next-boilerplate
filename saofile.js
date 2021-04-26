@@ -3,6 +3,7 @@ const FEATURES = {
     'src/pages/api/**/*',
     '@types/react-html-renderer.d.ts',
     'src/lib/prismic.ts',
+    'codegen.yaml',
   ],
   layouts: ['_templates/new/layout/**/*', '@types/next-layout.d.ts'],
   formComponents: 'src/components/Form/**/*',
