@@ -7,7 +7,7 @@ import { withLayout } from '@moxy/next-layout';
 <%% } -%%>
 <% } -%>
 <%% if (staticProps) { -%%>
-import { InferGetStaticPropsType, GetStaticProps, GetStaticPropsContext } from 'next';
+import { GetStaticProps } from 'next';
 <%% } -%%>
 import { css } from '@emotion/react';
 import { Meta } from '../components/Meta';
@@ -40,7 +40,7 @@ export default withLayout()(<%%= h.changeCase.pascal(name) %%>Page)
 
 <%% if (staticProps) { -%%>
 /** Page data */
-export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       data: <% if (features.prismic) { %><%%- prismic ? `await get('${name}', context)` : '{}' %%><%% if (prismic) { %%>,
