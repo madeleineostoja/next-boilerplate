@@ -10,7 +10,10 @@ export default [variables, css`
     base: 'remedy',
     fontSmoothing: true,
     resetMargins: true,
-    resetHeadings: true
+    resetHeadings: true,
+    // Remedy handles these
+    saneEmbeds: false,
+    hiddenProp: false,
   })}
 
   html {
