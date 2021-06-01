@@ -25,7 +25,7 @@ const styles = {
   main: css`
     display: grid;
     position: relative;
-    min-height: 100vh;
+    min-height: fill-available;
     grid-template-columns: var(--grid-page);
     align-items: start;
     & > * {

@@ -19,11 +19,12 @@ export default [variables, css`
   html {
     color: var(--color-text);
     -ms-overflow-style: -ms-autohiding-scrollbar;
+    height: 100%;
   }
 
   body {
     position: relative;
-    min-height: fill-available;
+    min-height: stretch;
   }
 
   a {
