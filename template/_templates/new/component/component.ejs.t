@@ -13,6 +13,7 @@ export type <%%= name %%>Props = {
 <%% } -%%>
 
 /**
+ * @component
  * <%%= description %%>
  */
 export function <%%= name %%>(<%% if (locals.props) { %%>{

@@ -13,7 +13,7 @@ import { css } from '@emotion/react';
 import { Meta } from '../components/Meta';
 <% if (features.prismic) { -%>
 <%% if (prismic) { -%%>
-import { get } from '../lib/prismic';
+import { queryAt } from '../lib/prismic';
 import { <%= h.changeCase.pascal(name) %> } from '../../@types/_generated/prismic';
 <%% } -%%>
 <% } -%>
@@ -41,11 +41,12 @@ export default withLayout()(<%%= h.changeCase.pascal(name) %%>Page)
 <%% if (staticProps) { -%%>
 /** Page data */
 export const getStaticProps: GetStaticProps = async (context) => {
+  <% if (features.prismic) { %><%%- prismic && `const { data } = await queryAt('document.type', '${name}');` %%><%% } %%><% } %>
   return {
     props: {
-      data: <% if (features.prismic) { %><%%- prismic ? `await get('${name}', context)` : '{}' %%><%% if (prismic) { %%>,
+      data<%% if (prismic) { %%>,
       preview: context.preview || null
-    <%% } %%><% } %>
+    <%% } %%>
     }
   };
 };

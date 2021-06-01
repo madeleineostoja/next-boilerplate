@@ -23,7 +23,7 @@ export default [variables, css`
 
   body {
     position: relative;
-    min-height: 100vh;
+    min-height: fill-available;
   }
 
   a {
