@@ -10,11 +10,11 @@ import { withLayout } from '@moxy/next-layout';
 import { GetStaticProps } from 'next';
 <%% } -%%>
 import { css } from '@emotion/react';
-import { Meta } from '../components/Meta';
+import { Meta } from '$src/components/Meta';
 <% if (features.prismic) { -%>
 <%% if (prismic) { -%%>
-import { queryAt } from '../lib/prismic';
-import { <%= h.changeCase.pascal(name) %> } from '../../@types/_generated/prismic';
+import { queryAt } from '$src/lib/prismic';
+import type { <%= h.changeCase.pascal(name) %> } from '$types/_generated/prismic';
 <%% } -%%>
 <% } -%>
 

@@ -1,24 +1,32 @@
 {
   "compilerOptions": {
-    /* Basic Options */
+    // Modules
+    "moduleResolution": "node",
     "target": "esnext",
     "module": "esnext",
-    "jsx": "preserve",
-    "allowJs": true,
-    "skipLibCheck": true,
-
-    /* Type-Checking Options */
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-
-    /* Module resoltion */
-    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
+    "importsNotUsedAsValues": "error",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+
+    // Type checking
+    "strict": true,
+    "jsx": "preserve",
+    "allowJs": true,
+    "skipLibCheck": true,
     "lib": ["dom", "dom.iterable", "esnext"],
-    "noEmit": true
+    "forceConsistentCasingInFileNames": true,
+
+    // Compilation
+    "noEmit": true,
+    "jsxImportSource": "@emotion/react",
+    "baseUrl": ".",
+    "paths": {
+      "$src/*": ["./src/*"],
+      "$types/*": ["./@types/*"],
+      "$storybook/*": ["./.storybook/*"]
+    }
   },
   "include": ["src", "@types", "./.storybook/**/*"],
   "exclude": []

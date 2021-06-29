@@ -51,11 +51,6 @@ module.exports = {
         message: 'Features:',
         choices: [
           {
-            name: 'Preact',
-            value: 'preact',
-            checked: true,
-          },
-          {
             name: 'Prismic',
             value: 'prismic',
             checked: true,

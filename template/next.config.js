@@ -2,18 +2,12 @@ const withPlugins = require('next-compose-plugins');
 const withPWA = require('next-pwa');
 const withFonts = require('next-fonts');
 const withImages = require('next-optimized-images');
-<% if (features.preact) { -%>
-const withPreact = require('next-plugin-preact');
-<% } -%>
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true'
 });
 
 module.exports = withPlugins(
   [
-<% if (features.preact) { -%>
-    withPreact,
-<% } -%>
     [
       withPWA,
       {

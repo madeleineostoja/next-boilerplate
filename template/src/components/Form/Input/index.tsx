@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { HTMLProps } from 'react';
+import type { HTMLProps } from 'react';
 import { inputStyles } from '..';
 import { LabelWrapper } from '../LabelWrapper';
 

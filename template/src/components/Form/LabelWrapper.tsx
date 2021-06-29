@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { cloneElement } from 'preact';
-import { HTMLProps } from 'react';
+import type { HTMLProps } from 'react';
 
 export type LabelWrapperProps = {
   /** Optional label */

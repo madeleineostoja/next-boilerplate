@@ -4,19 +4,19 @@ import { LayoutTree } from '@moxy/next-layout';
 <% } -%>
 <% if (features.firestore) { -%>
 import { FuegoProvider } from '@nandorojo/swr-firestore';
-import { Firebase } from '../lib/firebase';
-import { FIREBASE_CONFIG } from '../lib/consts';
+import { Firebase } from '$src/lib/firebase';
+import { FIREBASE_CONFIG } from '$src/lib/consts';
 import 'firebase/auth';
 import 'firebase/firestore';
 <% } -%>
 import { DefaultSeo } from 'next-seo';
-import NextApp, { AppContext, AppProps } from 'next/app';
+import type NextApp, { AppContext, AppProps } from 'next/app';
 import Head from 'next/head';
 import 'pollen-css';
 import { shimmie } from 'pollen-css/utils';
 import { useEffect } from 'react';
-import { GlobalData } from '../lib/GlobalData';
-import globalStyles from '../styles';
+import { GlobalData } from '$src/lib/GlobalData';
+import globalStyles from '$src/styles';
 
 <% if (features.firestore) { -%>
 const firebase = new Firebase(FIREBASE_CONFIG);

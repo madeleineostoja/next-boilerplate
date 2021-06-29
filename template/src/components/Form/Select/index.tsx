@@ -1,5 +1,4 @@
 import { css } from '@emotion/core';
-import React from 'react';
 import ReactSelect from 'react-select';
 import { inputStyles } from '..';
 

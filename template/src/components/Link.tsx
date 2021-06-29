@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import { HTMLProps } from 'react';
+import type { HTMLProps } from 'react';
 
 /**
  * Link wrapper

@@ -20,8 +20,8 @@
 <% } -%>
     "generate": "hygen new",
     "analyze": "ANALYZE=true yarn build",
-    "start": "next start",
-    "clean": "rm -rf ./dist ./storybook"
+    "lint": "next lint",
+    "type-check": "tsc"
   },
   "dependencies": {
     "@emotion/react": "^11.1.4",
@@ -35,7 +35,7 @@
     "@svgr/webpack": "^5.5.0",
     "case": "^1.6.0",
     "clean-deep": "^3.4.0",
-    "next": "^10.0.0",
+    "next": "^11.0.0",
     "next-compose-plugins": "^2.2.0",
     "next-fonts": "^1.5.0",
     "next-optimized-images": "^2.6.0",
@@ -45,20 +45,14 @@
     "next-sitemap": "^1.4.0",
 <% } -%>
     "pollen-css": "^1.1.0",
-<% if (features.preact) { -%>
-    "next-plugin-preact": "^3.0.0",
-    "preact": "^10.5.12",
-    "preact-render-to-string": "^5.1.12",
-    "react-ssr-prepass": "npm:preact-ssr-prepass",
-<% } -%>
 <% if (features.prismic) { -%>
     "prismic-dom": "^2.2.0",
     "prismic-javascript": "^3.0.0",
     "react-html-renderer": "^0.3.0",
 <% } -%>
     "query-string": "^6.13.0",
-    "react": "<%- features.prismic ? 'npm:@preact/compat' : '^17.0.0' %>",
-    "react-dom": "<%- features.prismic ? 'npm:@preact/compat' : '^17.0.0' %>",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
     "react-responsive": "^8.2.0",
 <% if (features.formComponents) { -%>
     "react-select": "^4.0.0",
