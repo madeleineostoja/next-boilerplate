@@ -18,7 +18,7 @@ import type { <%= h.changeCase.pascal(name) %> } from '$types/_generated/prismic
  */
 export default function <%%= h.changeCase.pascal(name) %%>Page({
   <%% if (staticProps) { -%%>data<%% } %%>
-}: { data: <%= h.changeCase.pascal(name) %> }) {
+}: { data: <%%= h.changeCase.pascal(name) %%> }) {
   const styles = {};
 
   return (
