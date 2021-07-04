@@ -1,7 +1,4 @@
 import { css, Global } from '@emotion/react';
-<% if (features.layouts) { -%>
-import { LayoutTree } from '@moxy/next-layout';
-<% } -%>
 <% if (features.firestore) { -%>
 import { FuegoProvider } from '@nandorojo/swr-firestore';
 import { Firebase } from '$src/lib/firebase';
@@ -68,11 +65,7 @@ function App({ Component, pageProps }: AppProps & any) {
         <GlobalData.Provider value={{}}>
           {/* Page */}
           <main css={styles.main}>
-<% if (features.layouts) { -%>
-            <LayoutTree Component={Component} pageProps={pageProps} />
-<% } else { -%>
             <Component {...pageProps} />
-<% } -%>
           </main>
         </GlobalData.Provider>
 <% if (features.firestore) { -%>

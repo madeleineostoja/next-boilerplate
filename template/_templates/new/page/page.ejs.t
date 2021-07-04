@@ -1,11 +1,6 @@
 ---
 to: src/pages/<%%= name %%>.tsx
 ---
-<% if (features.layouts) { -%>
-<%% if (layout) { -%%>
-import { withLayout } from '@moxy/next-layout';
-<%% } -%%>
-<% } -%>
 <%% if (staticProps) { -%%>
 import { GetStaticProps } from 'next';
 <%% } -%%>
@@ -21,7 +16,7 @@ import type { <%= h.changeCase.pascal(name) %> } from '$types/_generated/prismic
 /**
  * <%%= h.changeCase.sentence(name) %%> page
  */
-<% if (features.layouts) { %><%%= !layout ? 'export default ' : '' %%><% else { %>export default <% } %>function <%%= h.changeCase.pascal(name) %%>Page({
+export default function <%%= h.changeCase.pascal(name) %%>Page({
   <%% if (staticProps) { -%%>data<%% } %%>
 }: { data: <%= h.changeCase.pascal(name) %> }) {
   const styles = {};
@@ -32,11 +27,6 @@ import type { <%= h.changeCase.pascal(name) %> } from '$types/_generated/prismic
     </>
   );
 }
-<% if (features.layouts) { -%>
-<%% if (layout) { -%%>
-export default withLayout()(<%%= h.changeCase.pascal(name) %%>Page)
-<%% } -%%>
-<% } -%>
 
 <%% if (staticProps) { -%%>
 /** Page data */

@@ -16,14 +16,6 @@ module.exports = [
     name: 'prismic',
     message: 'Will this page query Prismic?',
     default: true
-  },
-  <% } -%>
-  <% if (features.layouts) { -%>
-  {
-    type: 'confirm',
-    name: 'layout',
-    message: 'Will this page use a layout?',
-    default: false
   }
   <% } -%>
 ];

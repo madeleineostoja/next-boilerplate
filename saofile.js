@@ -5,7 +5,6 @@ const FEATURES = {
     'src/lib/prismic.ts',
     'codegen.yaml',
   ],
-  layouts: ['_templates/new/layout/**/*', '@types/next-layout.d.ts'],
   formComponents: 'src/components/Form/**/*',
   sitemap: 'next-sitemap.js',
   firestore: 'src/lib/firebase.ts',
@@ -54,11 +53,6 @@ module.exports = {
             name: 'Prismic',
             value: 'prismic',
             checked: true,
-          },
-          {
-            name: 'Layouts',
-            value: 'layouts',
-            checked: false,
           },
           {
             name: 'Firestore',
