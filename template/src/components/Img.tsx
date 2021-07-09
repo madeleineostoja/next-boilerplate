@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
-import Image from 'next/image';
-import type { ImageProps } from 'next/image'
+import Image, { ImageProps } from 'next/image';
 
 export type PrismicImg = {
   url: string;
@@ -8,7 +7,8 @@ export type PrismicImg = {
   dimensions: { height: number; width: number };
 };
 
-export type ImgProps = Partial<ImageProps> & {
+export type ImgProps = Omit<ImageProps, 'src'|'layout'|'placeholder'|'blurDataURL'> & {
+  src?: string;
   /** Prismic data shorthand */
   prismic?: PrismicImg;
   /** Next Image layout setting */
@@ -48,6 +48,7 @@ export function Img({
         layout={layout}
         loading="lazy"
         objectFit="cover"
+        unoptimized={process.env.NODE_ENV === 'development'}
         {...props}
       />
     </div>

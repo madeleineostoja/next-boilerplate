@@ -12,14 +12,14 @@
 <% if (features.prismic) { -%>
     "predevelop": "yarn typegen",
 <% } -%>
-    "develop": "next dev",
-    "develop:storybook": "start-storybook -p 3002 -s ./public --ci --quiet",
-    "develop:all": "concurrently npm:develop npm:develop:storybook",
+    "dev": "next dev",
+    "storybook": "start-storybook -p 3002 -s ./public --ci --quiet",
 <% if (features.prismic) { -%>
     "typegen": "graphql-codegen",
 <% } -%>
     "generate": "hygen new",
     "analyze": "ANALYZE=true yarn build",
+    "test": "jest",
     "lint": "next lint",
     "type-check": "tsc"
   },
@@ -67,6 +67,8 @@
     "@storybook/addon-docs": "^6.1.0",
     "@storybook/addons": "^6.1.0",
     "@storybook/react": "^6.1.0",
+    "@testing-library/react": "^12.0.0",
+    "@types/jest": "^26.0.23",
     "@types/node": "^14.14.0",
 <% if (features.prismic) { -%>
     "graphql": "^15.5.0",
@@ -81,8 +83,8 @@
     "@types/react-select": "^4.0.0",
 <% } -%>
     "babel-loader": "^8.2.0",
-    "concurrently": "^5.3.0",
     "hygen": "^6.0.0",
+    "jest": "^27.0.6",
     "prettier": "^2.2.0",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",

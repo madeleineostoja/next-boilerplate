@@ -1,37 +1,5 @@
-import { useRouter } from 'next/router';
-import { stringify } from 'query-string';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { formatParams } from './utils';
-
-/**
- * Query param state helper
- */
-export function useQueryParams() {
-  const router = useRouter(),
-    hasQueryParams = /\[.+\]/.test(router.route) || /\?./.test(router.asPath),
-    ready = !hasQueryParams || Object.keys(router.query).length > 0;
-
-  const queryParams = ready ? formatParams(router.query, 'params') : null;
-  const queryString = stringify(router.query);
-
-  const set = useCallback(
-    (params: any) => {
-      router.replace(
-        `?${stringify(formatParams(params, 'query'))}`,
-        `${router.asPath.split('?')[0]}?${stringify(
-          formatParams(params, 'query')
-        )}`,
-        {
-          shallow: true
-        }
-      );
-    },
-    [router]
-  );
-
-  return [queryParams, set, queryString] as const;
-}
 
 /**
  * Patched useMediaQuery for SSR

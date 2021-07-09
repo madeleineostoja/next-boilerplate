@@ -8,8 +8,8 @@ export default () =>
       const width = props.width;
       const quotient = height / width;
       const paddingTop = isNaN(quotient) ? '100%' : `${quotient * 100}%`;
-      let wrapperStyle;
-      let sizerStyle;
+      let wrapperStyle = {};
+      let sizerStyle = {};
       let sizerSvg;
       let toBase64;
       let imgStyle = {

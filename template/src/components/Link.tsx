@@ -1,4 +1,4 @@
-import NextLink from 'next/link';
+import NextLink, { LinkProps } from 'next/link';
 import type { HTMLProps } from 'react';
 
 /**
@@ -10,7 +10,7 @@ export function Link({
   shallow,
   children,
   ...props
-}: typeof NextLink['props'] & HTMLProps<HTMLAnchorElement>) {
+}: LinkProps & HTMLProps<HTMLAnchorElement>) {
   return (
     <NextLink {...{ href, as, shallow }}>
       <a {...props}>{children}</a>

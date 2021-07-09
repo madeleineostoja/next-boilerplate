@@ -1,27 +1,21 @@
 import { css } from '@emotion/react';
-import { HTMLProps } from 'react';
-import { reset } from 'satchel-css';
+import type { ReactNode } from 'react';
 
 export type ButtonProps = {
-  /** Theme of the button */
-  theme?: 'default';
-} & Partial<HTMLProps<HTMLButtonElement>> &
-  Partial<HTMLProps<HTMLAnchorElement>>;
+  children: ReactNode;
+} & any;
 
 /**
  * Adaptive button component with themes
  */
-export function Button({ theme = 'primary', children, ...props }: ButtonProps) {
-  const Element = props.href ? 'button' : 'a';
+export function Button({ children, ...props }: ButtonProps) {
+  const Element = props.href ? 'a' : 'button';
 
   return (
     <Element
-      css={[
-        !props.href &&
-          css`
-            ${reset('button')}
-          `,
+      css={
         css`
+          all: unset;
           display: inline-flex;
           align-items: center;
           text-align: center;
@@ -30,7 +24,7 @@ export function Button({ theme = 'primary', children, ...props }: ButtonProps) {
           cursor: pointer;
           white-space: nowrap;
         `
-      ]}
+      }
       {...props}
     >
       {children}

@@ -1,10 +1,7 @@
-
 import { css } from '@emotion/react';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-export function Page({
-  children
-}: { children: ReactNode }) {
+export function Page({ children }: { children: ReactNode }) {
   return (
     <div
       css={css`

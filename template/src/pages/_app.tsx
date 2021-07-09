@@ -12,7 +12,6 @@ import Head from 'next/head';
 import 'pollen-css';
 import { shimmie } from 'pollen-css/utils';
 import { useEffect } from 'react';
-import { GlobalData } from '$src/lib/GlobalData';
 import globalStyles from '$src/styles';
 
 <% if (features.firestore) { -%>
@@ -62,12 +61,10 @@ function App({ Component, pageProps }: AppProps & any) {
 <% if (features.firestore) { -%>
       <FuegoProvider fuego={firebase}>
 <% } -%>
-        <GlobalData.Provider value={{}}>
-          {/* Page */}
-          <main css={styles.main}>
-            <Component {...pageProps} />
-          </main>
-        </GlobalData.Provider>
+        {/* Page */}
+        <main css={styles.main}>
+          <Component {...pageProps} />
+        </main>
 <% if (features.firestore) { -%>
       </FuegoProvider>
 <% } -%>
